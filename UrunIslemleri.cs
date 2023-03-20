@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +11,8 @@ namespace MarketApplication
 
         public List<UrunTip> TumUrunleriGetir()
         {
+         
+
             return Entity.Products.Select(p => new UrunTip()
             {
                 id = p.id,
@@ -21,6 +23,9 @@ namespace MarketApplication
                 Quantity = p.Quantity,
                 Unit = p.Unit
             }).ToList();
+            
+
+           
         }
 
         public List<UrunTip> KategoriyeGoreUrunleriGetir(Guid SubcategoryID)
@@ -37,12 +42,12 @@ namespace MarketApplication
             }).ToList();
         }
 
-        public List<UrunTip> UrunSil(Guid id)
+        public bool UrunSil(Guid id)
         {
             Products deleted = Entity.Products.Find(id);
             Entity.Products.Remove(deleted);
             Entity.SaveChanges();
-            return TumUrunleriGetir();
+            return true;
         }
     }
 
