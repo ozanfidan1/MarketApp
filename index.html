@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script src="ngcontroller.js"></script>
+</head>
+<body ng-app="market">
+    <table>
+        <tr>
+            <th> SubcategoryID </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Price </th>
+            <th> Quantity </th>
+            <th> Unit </th>
+            <th>  </th>
+        </tr>
+        <tr ng-repeat="x in Products">
+            <td>{{x.SubcategoryID}}</td>
+            <td>{{x.Name}}</td>
+            <td>{{x.Description}}</td>
+            <td>{{x.Price}}</td>
+            <td>{{x.Quantity}}</td>
+            <td>{{x.Unit}}</td>
+            <td><input type="button" value="sil" ng-click="urunsil(x.id)"/></td>
+        </tr>
+    </table>
+</body>
+</html>
